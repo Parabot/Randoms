@@ -37,7 +37,7 @@ deploy:
   - provider: s3
     access_key_id: AKIAJDZLZNH2PIKHUKOA
     secret_access_key:
-      secure: MTOqhji8t8DcGRsfZEitMTqMemqxIag4a3dI0SBeWKBMpDCcKOokhGbXFCUBvMukU6tKIFfMo15z2wERZQxCVAxMt7dr1cyuWb49Sdy+mnBR6Z3EsJ2suilBe6b+9odLJVplCQVRPz9VyKnllWwO9D5j/ZpQaf8fb1675PB6feY=
+      secure: Cvh05YiopxAxjERHnnsSQwVa6570+ob8igtbWMoctv0u8AMGgcSlRWXJksSiK1nQjmjpmDUOwuu0JIGwIk2hA4Nzn20WLkJm2vyrei/kgrdcfsMzA9M4B9uJsUNx1ETQGtr9IpE/YGyzwTT5s1SovtvHZvF2LLjeWZXAQkaIM7qSS69s+cSRhSTLxkocmOVl4GguNqlZbYaH8wDhHl0oWv/j6+aJCjiH/4YyzeoB0GC5u9TWCifmdza95UAFeoS8CfuEYGEMcoxQq4SNZ4TchHiEUkSuugDi2xYrFDKvhL+2eCkrW3h7OXuihFjrm7V1DxFzZ53W0LzS57s5ttXu2b6Glgei55ey7y0kI7j6K2dn/bz7v8YHP+mEW+JGSGZZsWtfa1VXZA49qAx9gUlRG3rI8PhIWNtrFIYl4+xc4E6PncoMGUzD4g4aj/to/+z8NSMAFgerGjTqkZIs9nicxl/Oi6GFSbBEZqyTIJ3dhtPgQILaehswAnkhwYA6M2JFD7tGUOxq6jz6/nWvpeooY61iVBc6NLNnB6CDYK7ka3bNOU4AXuL/Q4FTSfpJNWmpOlVc3xon7xoByQvhKA4QThTCrX959vJaO5wuWMrUosiVC/nq3j/+kvWoJLZ+cpQAV2k0h7hvHqCBQSsSe47z9gJJ5Y9fbo5v35MZT8ZlUzU=
     bucket: parabot
     skip_cleanup: true
     local-dir: "./target/final/"

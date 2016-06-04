@@ -46,5 +46,5 @@ deploy:
     detect_encoding: true
     acl: public_read
     on:
-      repo: Parabot/Parabot
+      repo: Parabot/Randoms
       all_branches: true

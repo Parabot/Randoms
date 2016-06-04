@@ -32,9 +32,9 @@ public class PacketFail implements Random, MessageListener {
 
     @Override
     public void execute() {
-        if (!Game.dropClient()){
+//        if (!Game.dropClient()){
             Logger.addMessage("Couldn't drop the client, please restart if required", true);
-        }
+//        }
         fails = 0;
     }
 

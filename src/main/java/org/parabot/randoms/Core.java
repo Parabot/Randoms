@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author JKetelaar
  */
 public class Core {
-    private ArrayList<Random> randoms = new ArrayList<Random>();
+    private ArrayList<Random> randoms = new ArrayList<>();
 
     public void init(String server) {
         randoms.add(new Jail());

@@ -17,7 +17,7 @@ public class SandwichLady implements Random {
     @Override
     public boolean activate() {
         for (Npc npc : Npcs.getNearest(3117)) {
-            if (npc != null && npc.getInteractingCharacter().equals(Players.getMyPlayer())) {
+            if (npc != null && npc.getDef() != null && npc.getInteractingCharacter().equals(Players.getMyPlayer())) {
                 lady = npc;
                 return true;
             }
@@ -27,7 +27,7 @@ public class SandwichLady implements Random {
 
     @Override
     public void execute() {
-        if (lady != null && lady.getInteractingCharacter().equals(Players.getMyPlayer())) {
+        if (lady != null && lady.getDef() != null && lady.getInteractingCharacter().equals(Players.getMyPlayer())) {
             lady.interact(0);
             Time.sleep(new SleepCondition() {
                 @Override

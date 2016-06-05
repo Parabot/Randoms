@@ -17,7 +17,7 @@ public class MysteriousOldMan implements Random {
     @Override
     public boolean activate() {
         for (Npc npc : Npcs.getNearest(410)) {
-            if (npc != null && npc.getInteractingCharacter().equals(Players.getMyPlayer())) {
+            if (npc != null && npc.getDef() != null && npc.getInteractingCharacter().equals(Players.getMyPlayer())) {
                 man = npc;
                 return true;
             }
@@ -27,7 +27,7 @@ public class MysteriousOldMan implements Random {
 
     @Override
     public void execute() {
-        if (man != null && man.getInteractingCharacter().equals(Players.getMyPlayer())) {
+        if (man != null && man.getDef() != null && man.getInteractingCharacter().equals(Players.getMyPlayer())) {
             man.interact(0);
             Time.sleep(new SleepCondition() {
                 @Override

@@ -13,11 +13,11 @@ import org.rev317.min.api.wrappers.Npc;
 public class MysteriousOldMan implements Random {
 
     private Npc man;
-    private final int ID = 410;
+    private final int id = 410;
 
     @Override
     public boolean activate() {
-        this.man = man();
+        this.man = getMan();
         return man != null;
     }
 
@@ -28,14 +28,14 @@ public class MysteriousOldMan implements Random {
             Time.sleep(new SleepCondition() {
                 @Override
                 public boolean isValid() {
-                    return man == null || !man.getInteractingCharacter().equals(Players.getMyPlayer());
+                    return man.distanceTo() < 2 || !man.getInteractingCharacter().equals(Players.getMyPlayer());
                 }
             }, 1500);
         }
     }
 
-    private Npc man() {
-        for (Npc man : Npcs.getNearest(ID)) {
+    private Npc getMan() {
+        for (Npc man : Npcs.getNearest(id)) {
             if (man != null && man.getDef() != null && man.getInteractingCharacter().equals(Players.getMyPlayer())) {
                 return man;
             }

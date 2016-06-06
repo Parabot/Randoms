@@ -13,11 +13,11 @@ import org.rev317.min.api.wrappers.Npc;
 public class SandwichLady implements Random {
 
     private Npc lady;
-    private final int ID = 3117;
+    private final int id = 3117;
 
     @Override
     public boolean activate() {
-        this.lady = lady();
+        this.lady = getLady();
         return this.lady != null;
     }
 
@@ -28,14 +28,14 @@ public class SandwichLady implements Random {
             Time.sleep(new SleepCondition() {
                 @Override
                 public boolean isValid() {
-                    return lady == null || !lady.getInteractingCharacter().equals(Players.getMyPlayer());
+                    return lady.distanceTo() < 2 || !lady.getInteractingCharacter().equals(Players.getMyPlayer());
                 }
             }, 1500);
         }
     }
 
-    private Npc lady() {
-        for (Npc lady : Npcs.getNearest(ID)) {
+    private Npc getLady() {
+        for (Npc lady : Npcs.getNearest(id)) {
             if (lady != null && lady.getDef() != null && lady.getInteractingCharacter().equals(Players.getMyPlayer())) {
                 return lady;
             }

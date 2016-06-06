@@ -12,30 +12,35 @@ import org.rev317.min.api.wrappers.Npc;
  */
 public class SandwichLady implements Random {
 
-    Npc lady;
+    private Npc lady;
+    private final int ID = 3117;
 
     @Override
     public boolean activate() {
-        for (Npc npc : Npcs.getNearest(3117)) {
-            if (npc != null && npc.getDef() != null && npc.getInteractingCharacter().equals(Players.getMyPlayer())) {
-                lady = npc;
-                return true;
-            }
-        }
-        return false;
+        this.lady = lady();
+        return this.lady != null;
     }
 
     @Override
     public void execute() {
-        if (lady != null && lady.getDef() != null && lady.getInteractingCharacter().equals(Players.getMyPlayer())) {
-            lady.interact(0);
+        if (this.lady != null) {
+            lady.interact(Npcs.Option.TALK_TO);
             Time.sleep(new SleepCondition() {
                 @Override
                 public boolean isValid() {
-                    return !lady.getInteractingCharacter().equals(Players.getMyPlayer());
+                    return lady == null || !lady.getInteractingCharacter().equals(Players.getMyPlayer());
                 }
             }, 1500);
         }
+    }
+
+    private Npc lady() {
+        for (Npc lady : Npcs.getNearest(ID)) {
+            if (lady != null && lady.getDef() != null && lady.getInteractingCharacter().equals(Players.getMyPlayer())) {
+                return lady;
+            }
+        }
+        return null;
     }
 
     @Override

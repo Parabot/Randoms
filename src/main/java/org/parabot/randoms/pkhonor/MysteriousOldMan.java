@@ -28,7 +28,7 @@ public class MysteriousOldMan implements Random {
             Time.sleep(new SleepCondition() {
                 @Override
                 public boolean isValid() {
-                    return man.distanceTo() < 2 || !man.getInteractingCharacter().equals(Players.getMyPlayer());
+                    return man.distanceTo() > 0 || !man.getInteractingCharacter().equals(Players.getMyPlayer());
                 }
             }, 1500);
         }

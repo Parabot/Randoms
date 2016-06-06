@@ -28,7 +28,7 @@ public class SandwichLady implements Random {
             Time.sleep(new SleepCondition() {
                 @Override
                 public boolean isValid() {
-                    return lady.distanceTo() < 2 || !lady.getInteractingCharacter().equals(Players.getMyPlayer());
+                    return lady.distanceTo() > 0 || !lady.getInteractingCharacter().equals(Players.getMyPlayer());
                 }
             }, 1500);
         }

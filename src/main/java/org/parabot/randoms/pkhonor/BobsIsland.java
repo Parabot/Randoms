@@ -19,20 +19,20 @@ import java.util.ArrayList;
  */
 public class BobsIsland implements Random {
 
-    private static final Tile CENTER = new Tile(2525,4777);
-    private static final int PORTAL_ID = 8987;
+    private static final Tile center = new Tile(2525,4777);
+    private static final int portal_id = 8987;
 
     public BobsIsland() {
     }
 
     @Override
     public boolean activate() {
-        return CENTER.distanceTo() < 25;
+        return center.distanceTo() < 25;
     }
 
     @Override
     public void execute() {
-        SceneObject[] portals = SceneObjects.getNearest(PORTAL_ID);
+        SceneObject[] portals = SceneObjects.getNearest(portal_id);
 
         for(final SceneObject portal : portals){
             if(portal != null){
@@ -45,7 +45,7 @@ public class BobsIsland implements Random {
                 }, 10000);
                 Time.sleep(1000);
 
-                if(CENTER.distanceTo() > 24){
+                if(center.distanceTo() > 24){
                     break;
                 }
             }

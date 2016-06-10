@@ -17,7 +17,7 @@ import org.rev317.min.api.wrappers.SceneObject;
 public class Jail implements Random {
     private Npc jailer;
     private final int[] rocks = {2093, 2092};
-    private final int[] pick_axes = {1266, 1268, 1270, 1272, 1274, 1276, 14605, 14608};
+    private final int[] pickAxes = {1266, 1268, 1270, 1272, 1274, 1276, 14605, 14608};
 
     @Override
     public boolean activate() {
@@ -39,7 +39,7 @@ public class Jail implements Random {
             SceneObject rock = getRock();
 
             //Check if we got an Pickaxe
-            if (Inventory.getCount(pick_axes) > 0) {
+            if (Inventory.getCount(pickAxes) > 0) {
 
                 //Check if we can min the ores
                 if (!Inventory.isFull()) {

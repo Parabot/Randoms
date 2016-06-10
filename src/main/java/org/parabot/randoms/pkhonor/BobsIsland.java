@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class BobsIsland implements Random {
 
     private static final Tile center = new Tile(2525,4777);
-    private static final int portal_id = 8987;
+    private static final int portalId = 8987;
 
     public BobsIsland() {
     }
@@ -32,7 +32,7 @@ public class BobsIsland implements Random {
 
     @Override
     public void execute() {
-        SceneObject[] portals = SceneObjects.getNearest(portal_id);
+        SceneObject[] portals = SceneObjects.getNearest(portalId);
 
         for(final SceneObject portal : portals){
             if(portal != null){

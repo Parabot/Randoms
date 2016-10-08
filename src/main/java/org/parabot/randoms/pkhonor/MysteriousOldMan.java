@@ -12,30 +12,35 @@ import org.rev317.min.api.wrappers.Npc;
  */
 public class MysteriousOldMan implements Random {
 
-    Npc man;
+    private Npc man;
+    private final int id = 410;
 
     @Override
     public boolean activate() {
-        for (Npc npc : Npcs.getNearest(410)) {
-            if (npc != null && npc.getInteractingCharacter().equals(Players.getMyPlayer())) {
-                man = npc;
-                return true;
-            }
-        }
-        return false;
+        this.man = getMan();
+        return man != null;
     }
 
     @Override
     public void execute() {
-        if (man != null && man.getInteractingCharacter().equals(Players.getMyPlayer())) {
-            man.interact(0);
+        if (this.man != null) {
+            man.interact(Npcs.Option.TALK_TO);
             Time.sleep(new SleepCondition() {
                 @Override
                 public boolean isValid() {
-                    return !man.getInteractingCharacter().equals(Players.getMyPlayer());
+                    return man.distanceTo() > 0 || !man.getInteractingCharacter().equals(Players.getMyPlayer());
                 }
             }, 1500);
         }
+    }
+
+    private Npc getMan() {
+        for (Npc man : Npcs.getNearest(id)) {
+            if (man != null && man.getDef() != null && man.getInteractingCharacter().equals(Players.getMyPlayer())) {
+                return man;
+            }
+        }
+        return null;
     }
 
     @Override

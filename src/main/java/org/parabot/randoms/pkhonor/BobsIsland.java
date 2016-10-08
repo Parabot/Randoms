@@ -19,38 +19,35 @@ import java.util.ArrayList;
  */
 public class BobsIsland implements Random {
 
-    private final int PORTAL = 8987;
-    private ArrayList<SceneObject> portals;
-    private final Area ISLAND = new Area(new Tile(2511, 4765), new Tile(2511, 4790), new Tile(2542, 4790), new Tile(2542, 4765));
+    private static final Tile center = new Tile(2525,4777);
+    private static final int portalId = 8987;
 
     public BobsIsland() {
-        portals = new ArrayList<>();
     }
 
     @Override
     public boolean activate() {
-        return ISLAND.contains(Players.getMyPlayer().getLocation());
+        return center.distanceTo() < 25;
     }
 
     @Override
     public void execute() {
-        //Fill The ArrayList
-        for (SceneObject portal : SceneObjects.getNearest(PORTAL)) {
-            if (portal != null) {
-                portals.add(portal);
-            }
-        }
+        SceneObject[] portals = SceneObjects.getNearest(portalId);
 
-        //Loop through the portals
-        for (final SceneObject portal : portals) {
-            if (portal != null) {
-                portal.interact(0);
+        for(final SceneObject portal : portals){
+            if(portal != null){
+                portal.interact(SceneObjects.Option.FIRST);
                 Time.sleep(new SleepCondition() {
                     @Override
                     public boolean isValid() {
                         return portal.distanceTo() < 2;
                     }
-                }, 7500);
+                }, 10000);
+                Time.sleep(1000);
+
+                if(center.distanceTo() > 24){
+                    break;
+                }
             }
         }
     }

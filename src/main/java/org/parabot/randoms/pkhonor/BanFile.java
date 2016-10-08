@@ -14,6 +14,7 @@ public class BanFile implements Random {
 
     @Override
     public boolean activate() {
+        checked = true;
         return !checked && filePresent();
     }
 
@@ -25,7 +26,6 @@ public class BanFile implements Random {
             }
         }
 
-        checked = true;
     }
 
     @Override
@@ -44,7 +44,6 @@ public class BanFile implements Random {
                 return true;
             }
         }
-        checked = true;
         return false;
     }
 }

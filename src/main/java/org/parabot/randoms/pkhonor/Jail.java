@@ -16,14 +16,14 @@ import org.rev317.min.api.wrappers.SceneObject;
 
 public class Jail implements Random {
     private Npc jailer;
-    private final int[] ROCKS = {2093, 2092};
-    private final int[] PICK_AXES = {1266, 1268, 1270, 1272, 1274, 1276, 14605, 14608};
+    private final int[] rocks = {2093, 2092};
+    private final int[] pickAxes = {1266, 1268, 1270, 1272, 1274, 1276, 14605, 14608};
 
     @Override
     public boolean activate() {
         try {
-            if (jailer() != null) {
-                this.jailer = jailer();
+            if (getJailer() != null) {
+                this.jailer = getJailer();
                 return true;
             }
             return false;
@@ -36,10 +36,10 @@ public class Jail implements Random {
     public void execute() {
         try {
 
-            SceneObject rock = rock();
+            SceneObject rock = getRock();
 
             //Check if we got an Pickaxe
-            if (Inventory.getCount(PICK_AXES) > 0) {
+            if (Inventory.getCount(pickAxes) > 0) {
 
                 //Check if we can min the ores
                 if (!Inventory.isFull()) {
@@ -84,17 +84,17 @@ public class Jail implements Random {
         }
     }
 
-    private Npc jailer(){
+    private Npc getJailer(){
         for(Npc jailer : Npcs.getNearest(201)){
-            if(jailer != null){
+            if(jailer != null && jailer.getDef() != null){
                 return jailer;
             }
         }
         return null;
     }
 
-    private SceneObject rock(){
-        for(SceneObject rock : SceneObjects.getNearest(ROCKS)){
+    private SceneObject getRock(){
+        for(SceneObject rock : SceneObjects.getNearest(rocks)){
             if(rock != null){
                 return rock;
             }

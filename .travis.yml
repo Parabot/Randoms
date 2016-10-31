@@ -2,6 +2,7 @@ language: java
 
 jdk:
   - oraclejdk7
+  - oraclejdk8
 
 before_install:
   - chmod +x ./.travis/maven-build.sh
@@ -47,4 +48,7 @@ deploy:
     acl: public_read
     on:
       repo: Parabot/Randoms
-      all_branches: true
+      branch:
+        - master
+        - development
+      jdk: 'oraclejdk7'

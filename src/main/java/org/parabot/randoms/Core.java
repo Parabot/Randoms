@@ -26,7 +26,7 @@ public class Core {
 
         org.parabot.core.Core.verbose("Possible randoms:");
         for (Random random : randoms) {
-            if (random.getServer().toLowerCase().equalsIgnoreCase(server.toLowerCase())) {
+            if (random.getServer().equalsIgnoreCase(server)) {
                 org.parabot.core.Core.verbose("-> " + random.getName());
                 Context.getInstance().getRandomHandler().addRandom(random);
             }

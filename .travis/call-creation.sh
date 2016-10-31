@@ -1,4 +1,4 @@
 #! /bin/bash
 
-sleep 15
-curl -sS "http://v3.bdn.parabot.org/api/bot/create/random?build_id=$TRAVIS_BUILD_ID&version=$RANDOMS_VERSION" >/dev/null
+sleep 1
+curl --data "build_id=$TRAVIS_BUILD_ID&version=$RANDOMS_VERSION" "http://v3.bdn.parabot.org/api/bot/create/randoms"

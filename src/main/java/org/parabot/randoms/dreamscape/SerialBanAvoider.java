@@ -6,6 +6,9 @@ import org.parabot.core.reflect.RefClass;
 import org.parabot.core.reflect.RefField;
 import org.parabot.environment.scripts.randoms.Random;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+
 /**
  * @author JKetelaar
  */
@@ -23,15 +26,22 @@ public class SerialBanAvoider implements Random {
 
     @Override
     public void execute() {
-        RefClass client = new RefClass(Context.getInstance().getClient());
-        RefField serial = client.getField(serialAddressField);
-        if (serial != null) {
-            serial.set(serialAddressValue);
-        } else {
-            Core.verbose(String.format("Oh oh... Couldn't find field: %s", serialAddressField));
+        try {
+            workAroundStaticValues(Context.getInstance().getClient().getClass(), serialAddressField, serialAddressValue);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
         }
 
         done = true;
+    }
+
+    private void workAroundStaticValues(Class clazz, String fieldName, Object newValue) throws NoSuchFieldException, IllegalAccessException {
+        Field field = clazz.getDeclaredField(fieldName);
+        field.setAccessible(true);
+        Field modifiers = field.getClass().getDeclaredField("modifiers");
+        modifiers.setAccessible(true);
+        modifiers.setInt(field, field.getModifiers() & ~Modifier.FINAL);
+        field.set(null, newValue);
     }
 
     @Override

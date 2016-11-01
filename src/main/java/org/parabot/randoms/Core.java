@@ -1,7 +1,7 @@
 package org.parabot.randoms;
 
 import org.parabot.core.Context;
-import org.parabot.environment.scripts.randoms.Random;
+import org.parabot.environment.randoms.Random;
 import org.parabot.randoms.dreamscape.SerialBanAvoider;
 import org.parabot.randoms.pkhonor.*;
 

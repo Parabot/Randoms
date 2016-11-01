@@ -1,21 +1,23 @@
 package org.parabot.randoms.pkhonor;
 
 import org.parabot.environment.api.utils.Time;
+import org.parabot.environment.randoms.Random;
+import org.parabot.environment.randoms.RandomType;
 import org.parabot.environment.scripts.framework.SleepCondition;
-import org.parabot.environment.scripts.randoms.Random;
 import org.rev317.min.api.methods.Inventory;
 import org.rev317.min.api.wrappers.Item;
 
 /**
- * Created with IntelliJ IDEA. User: Piet Jetse Date: 11-9-2014 Time: 22:29
+ * @author Fryslan
  */
 public class TriangleSandwich implements Random {
 
-    Item item;
+    private Item item;
+    private final int ID = 6963;
 
     @Override
     public boolean activate() {
-        for (Item i : Inventory.getItems(6963)) {
+        for (Item i : Inventory.getItems(ID)) {
             if (i != null) {
                 this.item = i;
                 return true;
@@ -31,7 +33,7 @@ public class TriangleSandwich implements Random {
             Time.sleep(new SleepCondition() {
                 @Override
                 public boolean isValid() {
-                    return Inventory.getCount(6963) == 0;
+                    return Inventory.getCount(ID) == 0;
                 }
             }, 1500);
         }
@@ -45,5 +47,10 @@ public class TriangleSandwich implements Random {
     @Override
     public String getServer() {
         return "pkhonor";
+    }
+
+    @Override
+    public RandomType getRandomType() {
+        return RandomType.SCRIPT;
     }
 }

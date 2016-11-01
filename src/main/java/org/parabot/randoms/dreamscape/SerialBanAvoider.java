@@ -1,10 +1,8 @@
 package org.parabot.randoms.dreamscape;
 
 import org.parabot.core.Context;
-import org.parabot.core.Core;
-import org.parabot.core.reflect.RefClass;
-import org.parabot.core.reflect.RefField;
-import org.parabot.environment.scripts.randoms.Random;
+import org.parabot.environment.randoms.Random;
+import org.parabot.environment.randoms.RandomType;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -52,5 +50,10 @@ public class SerialBanAvoider implements Random {
     @Override
     public String getServer() {
         return "dreamscape";
+    }
+
+    @Override
+    public RandomType getRandomType() {
+        return RandomType.ON_SERVER_START;
     }
 }

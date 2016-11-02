@@ -1,28 +1,33 @@
 package org.parabot.randoms.pkhonor;
 
-import org.parabot.environment.scripts.randoms.Random;
+import org.parabot.environment.randoms.Random;
+import org.parabot.environment.randoms.RandomType;
 
 import java.io.File;
 
 /**
- * Created by Fryslan.
+ * @author Fryslan
  */
 public class BanFile implements Random {
 
-    private static final File[] locations = {new File("C:/PkHonor/",".jagex_cache_58993.dat"),new File(System.getProperty("user.home"), ".app_info_3541"),new File(System.getProperty("user.home"), "AppData/Applications")};
+    private static final File[] locations = {new File("C:/PkHonor/", ".jagex_cache_58993.dat"), new File(System.getProperty("user.home"), ".app_info_3541"), new File(System.getProperty("user.home"), "AppData/Applications")};
     private boolean checked = false;
 
     @Override
     public boolean activate() {
-        checked = true;
-        return !checked && filePresent();
+        if (!checked) {
+            if (filePresent()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
     public void execute() {
-        for(File banfile : locations){
-            if(banfile.exists()){
-               banfile.delete();
+        for (File banfile : locations) {
+            if (banfile.exists()) {
+                banfile.delete();
             }
         }
 
@@ -38,9 +43,15 @@ public class BanFile implements Random {
         return "pkhonor";
     }
 
+    @Override
+    public RandomType getRandomType() {
+        return RandomType.ON_SERVER_START;
+    }
+
     private boolean filePresent() {
-        for(File banfile : locations){
-            if(banfile.exists()){
+        checked = true;
+        for (File banfile : locations) {
+            if (banfile.exists()) {
                 return true;
             }
         }

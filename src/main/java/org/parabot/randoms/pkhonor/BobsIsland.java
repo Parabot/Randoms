@@ -1,25 +1,19 @@
 package org.parabot.randoms.pkhonor;
 
 import org.parabot.environment.api.utils.Time;
+import org.parabot.environment.randoms.Random;
+import org.parabot.environment.randoms.RandomType;
 import org.parabot.environment.scripts.framework.SleepCondition;
-import org.parabot.environment.scripts.randoms.Random;
-import org.rev317.min.api.methods.Players;
 import org.rev317.min.api.methods.SceneObjects;
-import org.rev317.min.api.wrappers.Area;
 import org.rev317.min.api.wrappers.SceneObject;
 import org.rev317.min.api.wrappers.Tile;
 
-import java.util.ArrayList;
-
 /**
- * Created with IntelliJ IDEA.
- * User: Piet Jetse
- * Date: 2-1-2015
- * Time: 13:19
+ * @author Fryslan
  */
 public class BobsIsland implements Random {
 
-    private static final Tile center = new Tile(2525,4777);
+    private static final Tile center = new Tile(2525, 4777);
     private static final int portalId = 8987;
 
     public BobsIsland() {
@@ -34,8 +28,8 @@ public class BobsIsland implements Random {
     public void execute() {
         SceneObject[] portals = SceneObjects.getNearest(portalId);
 
-        for(final SceneObject portal : portals){
-            if(portal != null){
+        for (final SceneObject portal : portals) {
+            if (portal != null) {
                 portal.interact(SceneObjects.Option.FIRST);
                 Time.sleep(new SleepCondition() {
                     @Override
@@ -45,7 +39,7 @@ public class BobsIsland implements Random {
                 }, 10000);
                 Time.sleep(1000);
 
-                if(center.distanceTo() > 24){
+                if (center.distanceTo() > 24) {
                     break;
                 }
             }
@@ -60,5 +54,10 @@ public class BobsIsland implements Random {
     @Override
     public String getServer() {
         return "pkhonor";
+    }
+
+    @Override
+    public RandomType getRandomType() {
+        return RandomType.SCRIPT;
     }
 }

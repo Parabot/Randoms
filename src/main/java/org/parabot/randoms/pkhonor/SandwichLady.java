@@ -1,14 +1,15 @@
 package org.parabot.randoms.pkhonor;
 
 import org.parabot.environment.api.utils.Time;
+import org.parabot.environment.randoms.Random;
+import org.parabot.environment.randoms.RandomType;
 import org.parabot.environment.scripts.framework.SleepCondition;
-import org.parabot.environment.scripts.randoms.Random;
 import org.rev317.min.api.methods.Npcs;
 import org.rev317.min.api.methods.Players;
 import org.rev317.min.api.wrappers.Npc;
 
 /**
- * Created with IntelliJ IDEA. User: Piet Jetse Date: 12-9-2014 Time: 16:13
+ * @author Fryslan
  */
 public class SandwichLady implements Random {
 
@@ -51,5 +52,10 @@ public class SandwichLady implements Random {
     @Override
     public String getServer() {
         return "pkhonor";
+    }
+
+    @Override
+    public RandomType getRandomType() {
+        return RandomType.SCRIPT;
     }
 }

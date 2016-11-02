@@ -6,7 +6,7 @@
 
     <groupId>org.parabot</groupId>
     <artifactId>randoms</artifactId>
-    <version>0.2</version>
+    <version>0.21</version>
 
     <properties>
         <jdk.version>1.7</jdk.version>
@@ -33,7 +33,7 @@
         <dependency>
             <groupId>org.parabot</groupId>
             <artifactId>client</artifactId>
-            <version>2.6</version>
+            <version>2.6.1</version>
             <exclusions>
                 <exclusion>
                     <artifactId>*</artifactId>

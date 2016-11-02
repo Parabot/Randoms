@@ -14,7 +14,7 @@ import org.rev317.min.api.wrappers.Npc;
 public class SandwichLady implements Random {
 
     private Npc lady;
-    private final int ID = 3117;
+    private final int id = 3117;
 
     @Override
     public boolean activate() {
@@ -36,7 +36,7 @@ public class SandwichLady implements Random {
     }
 
     private Npc getLady() {
-        for (Npc lady : Npcs.getNearest(ID)) {
+        for (Npc lady : Npcs.getNearest(id)) {
             if (lady != null && lady.getDef() != null && lady.getInteractingCharacter().equals(Players.getMyPlayer())) {
                 return lady;
             }

@@ -13,11 +13,11 @@ import org.rev317.min.api.wrappers.Item;
 public class TriangleSandwich implements Random {
 
     private Item item;
-    private final int ID = 6963;
+    private final int id = 6963;
 
     @Override
     public boolean activate() {
-        for (Item i : Inventory.getItems(ID)) {
+        for (Item i : Inventory.getItems(id)) {
             if (i != null) {
                 this.item = i;
                 return true;
@@ -33,7 +33,7 @@ public class TriangleSandwich implements Random {
             Time.sleep(new SleepCondition() {
                 @Override
                 public boolean isValid() {
-                    return Inventory.getCount(ID) == 0;
+                    return Inventory.getCount(id) == 0;
                 }
             }, 1500);
         }

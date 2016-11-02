@@ -14,7 +14,7 @@ import org.rev317.min.api.wrappers.Npc;
 public class MysteriousOldMan implements Random {
 
     private Npc man;
-    private final int ID = 410;
+    private final int id = 410;
 
     @Override
     public boolean activate() {
@@ -36,7 +36,7 @@ public class MysteriousOldMan implements Random {
     }
 
     private Npc getMan() {
-        for (Npc man : Npcs.getNearest(ID)) {
+        for (Npc man : Npcs.getNearest(id)) {
             if (man != null && man.getDef() != null && man.getInteractingCharacter().equals(Players.getMyPlayer())) {
                 return man;
             }

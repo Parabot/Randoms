@@ -1,8 +1,9 @@
 package org.parabot.randoms.pkhonor;
 
 import org.parabot.environment.api.utils.Time;
+import org.parabot.environment.randoms.Random;
+import org.parabot.environment.randoms.RandomType;
 import org.parabot.environment.scripts.framework.SleepCondition;
-import org.parabot.environment.scripts.randoms.Random;
 import org.rev317.min.api.methods.Inventory;
 import org.rev317.min.api.methods.Npcs;
 import org.rev317.min.api.methods.Players;
@@ -11,7 +12,7 @@ import org.rev317.min.api.wrappers.Npc;
 import org.rev317.min.api.wrappers.SceneObject;
 
 /**
- * Created with IntelliJ IDEA. User: Piet Jetse Date: 11-9-2014 Time: 22:22
+ * @author Fryslan
  */
 
 public class Jail implements Random {
@@ -45,7 +46,7 @@ public class Jail implements Random {
                 if (!Inventory.isFull()) {
                     if (rock != null) {
                         if (Players.getMyPlayer().getAnimation() == -1) {
-                            rock.interact(0);
+                            rock.interact(SceneObjects.Option.MINE);
                             Time.sleep(new SleepCondition() {
                                 @Override
                                 public boolean isValid() {
@@ -57,7 +58,7 @@ public class Jail implements Random {
 
                     //Inventory is full depositting ores
                 } else {
-                    jailer.interact(0);
+                    jailer.interact(Npcs.Option.TALK_TO);
 
                     Time.sleep(new SleepCondition() {
                         @Override
@@ -70,7 +71,7 @@ public class Jail implements Random {
 
                 //getting Pickaxe
             } else {
-                jailer.interact(0);
+                jailer.interact(Npcs.Option.TALK_TO);
                 Time.sleep(new SleepCondition() {
                     @Override
                     public boolean isValid() {
@@ -84,18 +85,18 @@ public class Jail implements Random {
         }
     }
 
-    private Npc getJailer(){
-        for(Npc jailer : Npcs.getNearest(201)){
-            if(jailer != null && jailer.getDef() != null){
+    private Npc getJailer() {
+        for (Npc jailer : Npcs.getNearest(201)) {
+            if (jailer != null && jailer.getDef() != null) {
                 return jailer;
             }
         }
         return null;
     }
 
-    private SceneObject getRock(){
-        for(SceneObject rock : SceneObjects.getNearest(rocks)){
-            if(rock != null){
+    private SceneObject getRock() {
+        for (SceneObject rock : SceneObjects.getNearest(rocks)) {
+            if (rock != null) {
                 return rock;
             }
         }
@@ -110,5 +111,10 @@ public class Jail implements Random {
     @Override
     public String getServer() {
         return "pkhonor";
+    }
+
+    @Override
+    public RandomType getRandomType() {
+        return RandomType.SCRIPT;
     }
 }

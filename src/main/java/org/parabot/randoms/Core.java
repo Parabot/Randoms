@@ -3,6 +3,7 @@ package org.parabot.randoms;
 import org.parabot.core.Context;
 import org.parabot.environment.randoms.Random;
 import org.parabot.randoms.dreamscape.SerialBanAvoider;
+import org.parabot.randoms.elkoy.LogoutDisabler;
 import org.parabot.randoms.elkoy.QuestionSolver;
 import org.parabot.randoms.pkhonor.*;
 
@@ -27,7 +28,8 @@ public class Core {
         randoms.add(new SerialBanAvoider());
 
         //Elkoy
-        randoms.add(new QuestionSolver());
+        //randoms.add(new QuestionSolver());
+        randoms.add(new LogoutDisabler());
 
         org.parabot.core.Core.verbose("Possible randoms:");
         for (Random random : randoms) {

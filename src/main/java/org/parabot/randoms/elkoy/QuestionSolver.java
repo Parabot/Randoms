@@ -32,8 +32,8 @@ public class QuestionSolver implements Random {
 
     @Override
     public void execute() {
-        String message = Loader.getClient().getInterfaceCache()[372].getMessage();
-        if (!message.contains("lose items on death, beware")) {
+        String message = Loader.getClient().getInterfaceCache()[371].getMessage();
+        if (!message.contains("otherwise you will be teleported")) {
             message = message.replace("@dre@ ", "");
 
             Logger.addMessage("Contacting server to get an answer", false);

@@ -29,7 +29,7 @@ public class Core {
         randoms.add(new SerialBanAvoider());
 
         // Elkoy
-        //randoms.add(new QuestionSolver());
+        randoms.add(new QuestionSolver());
         randoms.add(new LogoutDisabler());
         randoms.add(new MouseOnScreen());
         randoms.add(new AntiDetector());

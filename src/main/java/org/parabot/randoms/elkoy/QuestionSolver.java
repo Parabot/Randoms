@@ -32,7 +32,7 @@ public class QuestionSolver implements Random {
 
     @Override
     public void execute() {
-        String message = Loader.getClient().getInterfaceCache()[371].getMessage();
+        String message = Loader.getClient().getInterfaceCache()[372].getMessage();
         if (!message.contains("otherwise you will be teleported")) {
             message = message.replace("@dre@ ", "");
 

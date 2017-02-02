@@ -27,6 +27,7 @@ public class Jail implements Random {
                 this.jailer = getJailer();
                 return true;
             }
+
             return false;
         } catch (Exception e) {
             return false;
@@ -91,6 +92,7 @@ public class Jail implements Random {
                 return jailer;
             }
         }
+
         return null;
     }
 
@@ -100,6 +102,7 @@ public class Jail implements Random {
                 return rock;
             }
         }
+
         return null;
     }
 

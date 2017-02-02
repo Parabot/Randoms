@@ -69,6 +69,7 @@ public class QuestionSolver implements Random {
         } catch (MalformedURLException | UnsupportedEncodingException | ParseException e) {
             e.printStackTrace();
         }
+
         return null;
     }
 

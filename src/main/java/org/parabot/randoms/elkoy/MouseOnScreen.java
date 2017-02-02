@@ -21,6 +21,7 @@ public class MouseOnScreen implements Random {
     public void execute() {
         int x = org.parabot.environment.api.utils.Random.between(100, Context.getInstance().getApplet().getWidth());
         int y = org.parabot.environment.api.utils.Random.between(100, Context.getInstance().getApplet().getHeight());
+
         Mouse.getInstance().moveMouse(x, y);
     }
 
@@ -39,7 +40,7 @@ public class MouseOnScreen implements Random {
         return RandomType.SCRIPT;
     }
 
-    private boolean onScreen(){
+    private boolean onScreen() {
         Point loc = Mouse.getInstance().getPoint();
         return Context.getInstance().getApplet().contains(loc);
     }

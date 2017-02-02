@@ -16,9 +16,6 @@ public class BobsIsland implements Random {
     private static final Tile center = new Tile(2525, 4777);
     private static final int portalId = 8987;
 
-    public BobsIsland() {
-    }
-
     @Override
     public boolean activate() {
         return center.distanceTo() < 25;

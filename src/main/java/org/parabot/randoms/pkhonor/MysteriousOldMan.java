@@ -41,6 +41,7 @@ public class MysteriousOldMan implements Random {
                 return man;
             }
         }
+
         return null;
     }
 

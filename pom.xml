@@ -6,7 +6,7 @@
 
     <groupId>org.parabot</groupId>
     <artifactId>randoms</artifactId>
-    <version>0.23</version>
+    <version>0.24</version>
 
     <properties>
         <jdk.version>1.7</jdk.version>

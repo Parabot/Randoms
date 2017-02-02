@@ -20,6 +20,7 @@ public class BanFile implements Random {
                 return true;
             }
         }
+
         return false;
     }
 
@@ -30,7 +31,6 @@ public class BanFile implements Random {
                 banfile.delete();
             }
         }
-
     }
 
     @Override
@@ -55,6 +55,7 @@ public class BanFile implements Random {
                 return true;
             }
         }
+
         return false;
     }
 }

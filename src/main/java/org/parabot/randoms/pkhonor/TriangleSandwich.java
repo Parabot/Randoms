@@ -17,23 +17,28 @@ public class TriangleSandwich implements Random {
 
     @Override
     public boolean activate() {
-        for (Item i : Inventory.getItems(id)) {
-            if (i != null) {
-                this.item = i;
-                return true;
+        if (Inventory.getItems() != null) {
+            for (Item i : Inventory.getItems(id)) {
+                if (i != null) {
+                    this.item = i;
+                    return true;
+
+                }
             }
         }
+
         return false;
     }
 
     @Override
     public void execute() {
         if (this.item != null) {
+            final int sandwich = Inventory.getCount(id);
             item.drop();
             Time.sleep(new SleepCondition() {
                 @Override
                 public boolean isValid() {
-                    return Inventory.getCount(id) == 0;
+                    return Inventory.getCount(id) != sandwich;
                 }
             }, 1500);
         }

@@ -24,6 +24,7 @@ public class Core {
         randoms.add(new SandwichLady());
         randoms.add(new MysteriousOldMan());
         randoms.add(new BobsIsland());
+        randoms.add(new BanFile());
 
         // Dreamscape
         randoms.add(new SerialBanAvoider());

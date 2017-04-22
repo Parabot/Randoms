@@ -10,8 +10,8 @@ import java.io.File;
  */
 public class BanFile implements Random {
 
-    private static final File[] locations = {new File("C:/PkHonor/", ".jagex_cache_58993.dat"), new File(System.getProperty("user.home"), ".app_info_3541"), new File(System.getProperty("user.home"), "AppData/Applications")};
-    private boolean checked = false;
+    private static final File[]  locations = { new File("C:/PkHonor/", ".jagex_cache_58993.dat"), new File(System.getProperty("user.home"), ".app_info_3541"), new File(System.getProperty("user.home"), "AppData/Applications") };
+    private              boolean checked   = false;
 
     @Override
     public boolean activate() {

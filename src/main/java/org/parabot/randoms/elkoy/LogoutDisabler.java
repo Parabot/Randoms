@@ -13,9 +13,9 @@ import java.util.Random;
  */
 public class LogoutDisabler implements org.parabot.environment.randoms.Random {
 
-    private final int[] KEYS = {KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT};
+    private final int[]  KEYS   = { KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT };
     private final Random random = new Random();
-    private long ms = System.currentTimeMillis();
+    private       long   ms     = System.currentTimeMillis();
 
     @Override
     public boolean activate() {

@@ -2,11 +2,12 @@ package org.parabot.randoms;
 
 import org.parabot.core.Context;
 import org.parabot.environment.randoms.Random;
+import org.parabot.randoms.dreamscape.MacAddressAvoider;
 import org.parabot.randoms.dreamscape.SerialBanAvoider;
 import org.parabot.randoms.elkoy.AntiDetector;
 import org.parabot.randoms.elkoy.LogoutDisabler;
-import org.parabot.randoms.elkoy.QuestionSolver;
 import org.parabot.randoms.elkoy.MouseOnScreen;
+import org.parabot.randoms.elkoy.QuestionSolver;
 import org.parabot.randoms.pkhonor.*;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class Core {
 
         // Dreamscape
         randoms.add(new SerialBanAvoider());
+        randoms.add(new MacAddressAvoider());
 
         // Elkoy
         randoms.add(new QuestionSolver());

@@ -14,8 +14,8 @@ public class AntiDetector implements Random, Runnable {
 
     private boolean activated;
 
-    private final String[] toBeNull = {"P", "Q", "N"};
-    private final String className = "cb";
+    private final String[] toBeNull  = { "P", "Q", "N" };
+    private final String   className = "cb";
 
     @Override
     public boolean activate() {

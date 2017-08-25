@@ -17,8 +17,8 @@ import org.rev317.min.api.wrappers.SceneObject;
 
 public class Jail implements Random {
     private Npc jailer;
-    private final int[] rocks = {2093, 2092};
-    private final int[] pickAxes = {1266, 1268, 1270, 1272, 1274, 1276, 14605, 14608};
+    private final int[] rocks    = { 2093, 2092 };
+    private final int[] pickAxes = { 1266, 1268, 1270, 1272, 1274, 1276, 14605, 14608 };
 
     @Override
     public boolean activate() {

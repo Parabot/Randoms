@@ -14,7 +14,7 @@ import org.rev317.min.api.wrappers.Npc;
 public class SandwichLady implements Random {
 
     private Npc lady;
-    private final int id = 3117;
+    private final int id = 5510;
 
     @Override
     public boolean activate() {

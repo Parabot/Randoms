@@ -18,8 +18,7 @@ public class CombatStone implements Random {
 
     @Override
     public boolean activate() {
-        this.combat = getCombat();
-        return this.combat != null;
+        return (this.combat = getCombat) != null;
     }
 
     @Override

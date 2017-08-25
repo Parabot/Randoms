@@ -9,7 +9,7 @@ import org.rev317.min.api.methods.Players;
 import org.rev317.min.api.wrappers.Npc;
 
 /**
- * @author Updated Lord
+ * @author Lord
  */
 public class CombatStone implements Random {
 
@@ -18,7 +18,7 @@ public class CombatStone implements Random {
 
     @Override
     public boolean activate() {
-        this.combat = getLady();
+        this.combat = getCombat();
         return this.combat != null;
     }
 
@@ -36,10 +36,10 @@ public class CombatStone implements Random {
         }
     }
 
-    private Npc getLady() {
-        for (Npc lady : Npcs.getNearest(id)) {
-            if (lady != null && lady.getInteractingCharacter().equals(Players.getMyPlayer())) {
-                return lady;
+    private Npc getCombat() {
+        for (Npc combat : Npcs.getNearest(id)) {
+            if (combat != null && combat.getInteractingCharacter().equals(Players.getMyPlayer())) {
+                return combat;
             }
         }
 

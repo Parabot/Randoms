@@ -1,17 +1,14 @@
 package org.parabot.randoms.dreamscape;
 
 import org.parabot.core.Context;
-import org.parabot.environment.randoms.Random;
+import org.parabot.core.network.NetworkInterface;
 import org.parabot.environment.randoms.RandomType;
 import org.parabot.randoms.utils.Reflection;
 
 /**
- * @author JKetelaar
+ * @author EmmaStone
  */
-public class SerialBanAvoider implements Random {
-
-    private static final String serialAddressField = "SERIAL_ADDRESS";
-    private static final String serialAddressValue = "empty_or_unknown";
+public class MacAddressAvoider implements org.parabot.environment.randoms.Random {
 
     private boolean done;
 
@@ -22,13 +19,15 @@ public class SerialBanAvoider implements Random {
 
     @Override
     public void execute() {
-        Reflection.workAroundStaticValues(Context.getInstance().getClient().getClass(), serialAddressField, serialAddressValue);
+        byte[] mac = new byte[6];
+        new java.util.Random().nextBytes(mac);
+        Reflection.workAroundStaticValues(Context.getInstance().getClient().getClass(), "MAC_ADDRESS", NetworkInterface.formatMac(mac));
         done = true;
     }
 
     @Override
     public String getName() {
-        return "Serial ban avoider";
+        return "Mac address avoider";
     }
 
     @Override

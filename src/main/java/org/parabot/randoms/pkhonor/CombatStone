@@ -23,7 +23,7 @@ public class CombatStone implements Random {
 
     @Override
     public void execute() {
-        System.out.println("Running CombatStone");
+        Logger.addMessage("CombatStone Random Running",true);
         if (this.combat != null) {
             combat.interact(Npcs.Option.TALK_TO);
             Time.sleep(new SleepCondition() {

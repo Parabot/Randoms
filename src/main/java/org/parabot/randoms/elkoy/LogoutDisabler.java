@@ -13,9 +13,9 @@ import java.util.Random;
  */
 public class LogoutDisabler implements org.parabot.environment.randoms.Random {
 
-    private final int[] KEYS = {KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT};
+    private final int[]  keys   = { KeyEvent.VK_UP, KeyEvent.VK_DOWN, KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT };
     private final Random random = new Random();
-    private long ms = System.currentTimeMillis();
+    private       long   ms     = System.currentTimeMillis();
 
     @Override
     public boolean activate() {
@@ -24,7 +24,7 @@ public class LogoutDisabler implements org.parabot.environment.randoms.Random {
 
     @Override
     public void execute() {
-        int keyCode = KEYS[random.nextInt(KEYS.length)];
+        int keyCode = keys[random.nextInt(keys.length)];
         Keyboard.getInstance().pressKey(keyCode);
         Time.sleep(random.nextInt((20 - 5) + 1) + 5);
         Keyboard.getInstance().releaseKey(keyCode);

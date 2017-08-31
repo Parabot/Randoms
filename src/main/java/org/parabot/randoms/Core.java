@@ -8,6 +8,7 @@ import org.parabot.randoms.elkoy.AntiDetector;
 import org.parabot.randoms.elkoy.LogoutDisabler;
 import org.parabot.randoms.elkoy.MouseOnScreen;
 import org.parabot.randoms.elkoy.QuestionSolver;
+import org.parabot.randoms.locopk.MacAddressFix;
 import org.parabot.randoms.pkhonor.*;
 
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class Core {
         randoms.add(new MysteriousOldMan());
         randoms.add(new BobsIsland());
         randoms.add(new BanFile());
+        randoms.add(new CombatStone());
 
         // Dreamscape
         randoms.add(new SerialBanAvoider());
@@ -36,6 +38,9 @@ public class Core {
         randoms.add(new LogoutDisabler());
         randoms.add(new MouseOnScreen());
         randoms.add(new AntiDetector());
+
+        // LocoPK
+        randoms.add(new MacAddressFix());
 
         org.parabot.core.Core.verbose("Possible randoms:");
         for (Random random : randoms) {

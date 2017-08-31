@@ -18,12 +18,11 @@ public class CombatStone implements Random {
 
     @Override
     public boolean activate() {
-        return (this.combat = getCombat) != null;
+        return (this.combat = getCombat()) != null;
     }
 
     @Override
     public void execute() {
-        Logger.addMessage("CombatStone Random Running",true);
         if (this.combat != null) {
             combat.interact(Npcs.Option.TALK_TO);
             Time.sleep(new SleepCondition() {

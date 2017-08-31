@@ -12,8 +12,8 @@ import org.rev317.min.api.wrappers.Item;
  */
 public class TriangleSandwich implements Random {
 
-    private Item item;
     private final int id = 6963;
+    private Item item;
 
     @Override
     public boolean activate() {

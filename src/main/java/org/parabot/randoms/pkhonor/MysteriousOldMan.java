@@ -13,8 +13,8 @@ import org.rev317.min.api.wrappers.Npc;
  */
 public class MysteriousOldMan implements Random {
 
-    private Npc man;
     private final int id = 513;
+    private Npc man;
 
     @Override
     public boolean activate() {

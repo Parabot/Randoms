@@ -2,11 +2,11 @@ package org.parabot.randoms;
 
 import org.parabot.core.Context;
 import org.parabot.environment.randoms.Random;
-import org.parabot.randoms.dreamscape.SerialBanAvoider;
 import org.parabot.randoms.elkoy.AntiDetector;
 import org.parabot.randoms.elkoy.LogoutDisabler;
-import org.parabot.randoms.elkoy.QuestionSolver;
 import org.parabot.randoms.elkoy.MouseOnScreen;
+import org.parabot.randoms.elkoy.QuestionSolver;
+import org.parabot.randoms.locopk.MacAddressFix;
 import org.parabot.randoms.pkhonor.*;
 
 import java.util.ArrayList;
@@ -24,15 +24,17 @@ public class Core {
         randoms.add(new SandwichLady());
         randoms.add(new MysteriousOldMan());
         randoms.add(new BobsIsland());
-
-        // Dreamscape
-        randoms.add(new SerialBanAvoider());
+        randoms.add(new BanFile());
+        randoms.add(new CombatStone());
 
         // Elkoy
         randoms.add(new QuestionSolver());
         randoms.add(new LogoutDisabler());
         randoms.add(new MouseOnScreen());
         randoms.add(new AntiDetector());
+
+        // LocoPK
+        randoms.add(new MacAddressFix());
 
         org.parabot.core.Core.verbose("Possible randoms:");
         for (Random random : randoms) {

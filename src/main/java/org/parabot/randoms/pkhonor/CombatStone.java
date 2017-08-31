@@ -9,36 +9,35 @@ import org.rev317.min.api.methods.Players;
 import org.rev317.min.api.wrappers.Npc;
 
 /**
- * @author Fryslan
+ * @author Lord
  */
-public class SandwichLady implements Random {
+public class CombatStone implements Random {
 
-    private Npc lady;
-    private final int id = 5510;
+    private Npc combat;
+    private final int id = 17025;
 
     @Override
     public boolean activate() {
-        this.lady = getLady();
-        return this.lady != null;
+        return (this.combat = getCombat()) != null;
     }
 
     @Override
     public void execute() {
-        if (this.lady != null) {
-            lady.interact(Npcs.Option.TALK_TO);
+        if (this.combat != null) {
+            combat.interact(Npcs.Option.TALK_TO);
             Time.sleep(new SleepCondition() {
                 @Override
                 public boolean isValid() {
-                    return lady.distanceTo() > 0 || !lady.getInteractingCharacter().equals(Players.getMyPlayer());
+                    return combat.distanceTo() > 0 || !combat.getInteractingCharacter().equals(Players.getMyPlayer());
                 }
             }, 1500);
         }
     }
 
-    private Npc getLady() {
-        for (Npc lady : Npcs.getNearest(id)) {
-            if (lady != null && lady.getDef() != null && lady.getInteractingCharacter().equals(Players.getMyPlayer())) {
-                return lady;
+    private Npc getCombat() {
+        for (Npc combat : Npcs.getNearest(id)) {
+            if (combat != null && combat.getInteractingCharacter().equals(Players.getMyPlayer())) {
+                return combat;
             }
         }
 
@@ -47,7 +46,7 @@ public class SandwichLady implements Random {
 
     @Override
     public String getName() {
-        return "Sandwich Lady Solver";
+        return "CombatStone Solver";
     }
 
     @Override

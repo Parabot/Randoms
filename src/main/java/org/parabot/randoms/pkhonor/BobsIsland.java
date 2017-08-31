@@ -13,8 +13,8 @@ import org.rev317.min.api.wrappers.Tile;
  */
 public class BobsIsland implements Random {
 
-    private static final Tile center = new Tile(2525, 4777);
-    private static final int portalId = 8987;
+    private static final Tile center   = new Tile(2525, 4777);
+    private static final int  portalId = 8987;
 
     @Override
     public boolean activate() {

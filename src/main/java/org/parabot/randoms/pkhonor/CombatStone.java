@@ -13,8 +13,8 @@ import org.rev317.min.api.wrappers.Npc;
  */
 public class CombatStone implements Random {
 
-    private Npc combat;
     private final int id = 17025;
+    private Npc combat;
 
     @Override
     public boolean activate() {

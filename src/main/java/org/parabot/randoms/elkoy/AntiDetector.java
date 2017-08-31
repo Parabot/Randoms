@@ -12,10 +12,9 @@ import org.parabot.environment.randoms.RandomType;
  */
 public class AntiDetector implements Random, Runnable {
 
-    private boolean activated;
-
     private final String[] toBeNull  = { "P", "Q", "N" };
     private final String   className = "cb";
+    private boolean activated;
 
     @Override
     public boolean activate() {

@@ -2,8 +2,6 @@ package org.parabot.randoms;
 
 import org.parabot.core.Context;
 import org.parabot.environment.randoms.Random;
-import org.parabot.randoms.dreamscape.MacAddressAvoider;
-import org.parabot.randoms.dreamscape.SerialBanAvoider;
 import org.parabot.randoms.elkoy.AntiDetector;
 import org.parabot.randoms.elkoy.LogoutDisabler;
 import org.parabot.randoms.elkoy.MouseOnScreen;
@@ -28,10 +26,6 @@ public class Core {
         randoms.add(new BobsIsland());
         randoms.add(new BanFile());
         randoms.add(new CombatStone());
-
-        // Dreamscape
-        randoms.add(new SerialBanAvoider());
-        randoms.add(new MacAddressAvoider());
 
         // Elkoy
         randoms.add(new QuestionSolver());

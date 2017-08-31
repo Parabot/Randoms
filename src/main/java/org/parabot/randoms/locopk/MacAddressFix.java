@@ -33,9 +33,11 @@ public class MacAddressFix implements Random {
                 Field mac = createUID.getDeclaredField("mac");
                 mac.set(null, randomMacAddress());
             } else {
-                Field firstID = createUID.getDeclaredField("firstId");
+                Field firstId = createUID.getDeclaredField("firstId");
+                firstId.set(null, UUID.randomUUID().toString());
 
-                firstID.set(null, UUID.randomUUID().toString());
+                Field secondId = createUID.getDeclaredField("secondId");
+                secondId.set(null, UUID.randomUUID().toString());
             }
         } catch (ClassNotFoundException | NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();

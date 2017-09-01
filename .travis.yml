@@ -56,4 +56,4 @@ deploy:
       branch:
         - master
         - development
-      jdk: 'oraclejdk7'
+      jdk: 'openjdk7'

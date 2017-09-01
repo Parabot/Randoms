@@ -2,6 +2,7 @@ package org.parabot.randoms;
 
 import org.parabot.core.Context;
 import org.parabot.environment.randoms.Random;
+import org.parabot.randoms.dreamscape.FileBan;
 import org.parabot.randoms.elkoy.AntiDetector;
 import org.parabot.randoms.elkoy.LogoutDisabler;
 import org.parabot.randoms.elkoy.MouseOnScreen;
@@ -35,6 +36,9 @@ public class Core {
 
         // LocoPK
         randoms.add(new MacAddressFix());
+
+        // Dreamscape
+        randoms.add(new FileBan());
 
         org.parabot.core.Core.verbose("Possible randoms:");
         for (Random random : randoms) {

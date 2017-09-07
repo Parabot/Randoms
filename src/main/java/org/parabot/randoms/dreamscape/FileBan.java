@@ -46,8 +46,6 @@ public class FileBan implements Random {
 
     private boolean doesFileExist() {
         checked = true;
-
-        File file = new File(System.getProperty("user.home") + "/jagex_rs.txt");
-        return file.exists() && file.exists();
+        return new File(System.getProperty("user.home") + "/jagex_rs.txt").exists();
     }
 }

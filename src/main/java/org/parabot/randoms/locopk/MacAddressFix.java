@@ -2,11 +2,11 @@ package org.parabot.randoms.locopk;
 
 import org.parabot.core.Context;
 import org.parabot.core.asm.ASMClassLoader;
-import org.parabot.environment.OperatingSystem;
+import org.parabot.core.reflect.RefClass;
+import org.parabot.core.reflect.RefField;
 import org.parabot.environment.randoms.Random;
 import org.parabot.environment.randoms.RandomType;
 
-import java.lang.reflect.Field;
 import java.util.UUID;
 
 /**
@@ -26,20 +26,20 @@ public class MacAddressFix implements Random {
         try {
             final ASMClassLoader classLoader = Context.getInstance().getASMClassLoader();
 
-            Class<?> createUID = classLoader.loadClass("com.locopk.client.rs.CreateUID");
+            RefClass createUID = new RefClass(classLoader.loadClass("com.locopk.client.rs.CreateUID"));
 
-            if (OperatingSystem.getOS().equals(OperatingSystem.MAC)) {
+            String s1 = UUID.randomUUID().toString();
+            String s2 = UUID.randomUUID().toString();
 
-                Field mac = createUID.getDeclaredField("mac");
-                mac.set(null, randomMacAddress());
-            } else {
-                Field firstId = createUID.getDeclaredField("firstId");
-                firstId.set(null, UUID.randomUUID().toString());
+            RefField mac = createUID.getField("mac");
+            mac.set(randomMacAddress());
 
-                Field secondId = createUID.getDeclaredField("secondId");
-                secondId.set(null, UUID.randomUUID().toString());
-            }
-        } catch (ClassNotFoundException | NoSuchFieldException | IllegalAccessException e) {
+            RefField firstId = createUID.getField("firstId");
+            firstId.set(s1);
+
+            RefField secondId = createUID.getField("secondId");
+            secondId.set(s2);
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
 

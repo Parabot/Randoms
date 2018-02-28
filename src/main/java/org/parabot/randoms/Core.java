@@ -9,6 +9,7 @@ import org.parabot.randoms.elkoy.MouseOnScreen;
 import org.parabot.randoms.elkoy.QuestionSolver;
 import org.parabot.randoms.locopk.MacAddressFix;
 import org.parabot.randoms.pkhonor.*;
+import org.parabot.randoms.soulplay.RandomUUID;
 
 import java.util.ArrayList;
 
@@ -39,6 +40,9 @@ public class Core {
 
         // Dreamscape
         randoms.add(new FileBan());
+
+        // SoulPlay
+        randoms.add(new RandomUUID());
 
         org.parabot.core.Core.verbose("Possible randoms:");
         for (Random random : randoms) {

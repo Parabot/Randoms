@@ -1,9 +1,9 @@
 package org.parabot.randoms.soulplay;
 
-import org.parabot.core.Context;
 import org.parabot.core.reflect.RefClass;
 import org.parabot.environment.randoms.Random;
 import org.parabot.environment.randoms.RandomType;
+import org.rev317.min.Loader;
 
 /**
  * @author SCoutinho
@@ -15,7 +15,7 @@ public class RandomUUID implements Random {
     private long number;
 
     public RandomUUID() {
-        this.clientClass = (RefClass) Context.getInstance().getClient();
+        this.clientClass = new RefClass(Loader.getClient());
         this.number = (long) Math.floor(Math.random() * 9000000000L) + 1000000000L;
     }
 

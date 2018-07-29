@@ -1,5 +1,6 @@
 package org.parabot.randoms;
 
+import org.parabot.api.output.Logger;
 import org.parabot.core.Context;
 import org.parabot.environment.randoms.Random;
 import org.parabot.randoms.dreamscape.FileBan;
@@ -44,12 +45,20 @@ public class Core {
         // SoulPlay
         randoms.add(new RandomUUID());
 
-        org.parabot.core.Core.verbose("Possible randoms:");
+        StringBuilder sb = new StringBuilder();
+        sb.append("Possible randoms:\n");
+        int randomCount = 0;
         for (Random random : randoms) {
             if (random.getServer().equalsIgnoreCase(server)) {
-                org.parabot.core.Core.verbose("-> " + random.getName());
+                sb.append("\t-> ").append(random.getName());
                 Context.getInstance().getRandomHandler().addRandom(random);
+                randomCount++;
             }
         }
+        final String toPrint = sb.append("\n").toString();
+        if (toPrint.contains("->")) {
+            org.parabot.core.Core.verbose(toPrint);
+        }
+        Logger.info("org.parabot.randoms.Core", "A total of "+randomCount+" randoms have been loaded for server: "+server);
     }
 }

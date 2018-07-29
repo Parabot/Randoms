@@ -10,6 +10,7 @@ import org.parabot.randoms.elkoy.MouseOnScreen;
 import org.parabot.randoms.elkoy.QuestionSolver;
 import org.parabot.randoms.locopk.MacAddressFix;
 import org.parabot.randoms.pkhonor.*;
+import org.parabot.randoms.runewild.MacAddressFix_Runewild;
 import org.parabot.randoms.soulplay.RandomUUID;
 
 import java.util.ArrayList;
@@ -36,8 +37,9 @@ public class Core {
         randoms.add(new MouseOnScreen());
         randoms.add(new AntiDetector());
 
-        // LocoPK
+        // LocoPK - rebranded to RuneWild
         randoms.add(new MacAddressFix());
+        randoms.add(new MacAddressFix_Runewild());
 
         // Dreamscape
         randoms.add(new FileBan());

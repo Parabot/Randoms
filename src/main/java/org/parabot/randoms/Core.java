@@ -61,6 +61,6 @@ public class Core {
         if (toPrint.contains("->")) {
             org.parabot.core.Core.verbose(toPrint);
         }
-        Logger.info("org.parabot.randoms.Core", "A total of "+randomCount+" randoms have been loaded for server: "+server);
+        org.parabot.core.Core.verbose("[org.parabot.randoms.Core] A total of "+randomCount+" randoms have been loaded for server: "+server);
     }
 }

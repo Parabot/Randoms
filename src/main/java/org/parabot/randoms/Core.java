@@ -1,6 +1,5 @@
 package org.parabot.randoms;
 
-import org.parabot.api.output.Logger;
 import org.parabot.core.Context;
 import org.parabot.environment.randoms.Random;
 import org.parabot.randoms.dreamscape.FileBan;
@@ -8,9 +7,8 @@ import org.parabot.randoms.elkoy.AntiDetector;
 import org.parabot.randoms.elkoy.LogoutDisabler;
 import org.parabot.randoms.elkoy.MouseOnScreen;
 import org.parabot.randoms.elkoy.QuestionSolver;
-import org.parabot.randoms.locopk.MacAddressFix;
 import org.parabot.randoms.pkhonor.*;
-import org.parabot.randoms.runewild.MacAddressFix_Runewild;
+import org.parabot.randoms.runewild.MacAddressFix;
 import org.parabot.randoms.soulplay.RandomUUID;
 
 import java.util.ArrayList;
@@ -37,9 +35,8 @@ public class Core {
         randoms.add(new MouseOnScreen());
         randoms.add(new AntiDetector());
 
-        // LocoPK - rebranded to RuneWild
+        // RuneWild
         randoms.add(new MacAddressFix());
-        randoms.add(new MacAddressFix_Runewild());
 
         // Dreamscape
         randoms.add(new FileBan());

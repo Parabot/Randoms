@@ -10,9 +10,10 @@ import org.parabot.environment.randoms.Random;
 import org.parabot.environment.randoms.RandomType;
 
 /**
- * @author EmmaStone
+ * @author EmmaStone - Originally for LocoPK
+ * @author Shadowrs - fixed for RuneWild with additions
  */
-public class MacAddressFix_Runewild implements Random {
+public class MacAddressFix implements Random {
 
     private boolean done;
 

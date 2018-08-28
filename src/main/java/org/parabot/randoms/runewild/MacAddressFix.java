@@ -1,5 +1,7 @@
-package org.parabot.randoms.locopk;
+package org.parabot.randoms.runewild;
 
+import java.util.UUID;
+import org.parabot.api.output.Logger;
 import org.parabot.core.Context;
 import org.parabot.core.asm.ASMClassLoader;
 import org.parabot.core.reflect.RefClass;
@@ -7,10 +9,9 @@ import org.parabot.core.reflect.RefField;
 import org.parabot.environment.randoms.Random;
 import org.parabot.environment.randoms.RandomType;
 
-import java.util.UUID;
-
 /**
- * @author EmmaStone
+ * @author EmmaStone - Originally for LocoPK
+ * @author Shadowrs - fixed for RuneWild with additions
  */
 public class MacAddressFix implements Random {
 
@@ -18,7 +19,7 @@ public class MacAddressFix implements Random {
 
     @Override
     public boolean activate() {
-        return !done;
+        return true;
     }
 
     @Override
@@ -26,19 +27,40 @@ public class MacAddressFix implements Random {
         try {
             final ASMClassLoader classLoader = Context.getInstance().getASMClassLoader();
 
-            RefClass createUID = new RefClass(classLoader.loadClass("com.locopk.client.rs.CreateUID"));
+            RefClass createUID = new RefClass(classLoader.loadClass("com.rw.client.rs.CreateUID"));
+
+
+            try {
+                Logger.info("MacAddressFix_RW", String.format(
+                        "Before applying MAC override : %s | %s | %s",
+                        createUID.getField("mac").getField().get(""),
+                        createUID.getField("firstId").getField().get(""),
+                        createUID.getField("secondId").getField().get("")));
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
 
             String s1 = UUID.randomUUID().toString();
             String s2 = UUID.randomUUID().toString();
 
             RefField mac = createUID.getField("mac");
-            mac.set(randomMacAddress());
+            mac.set("lolmkay");
 
             RefField firstId = createUID.getField("firstId");
             firstId.set(s1);
 
             RefField secondId = createUID.getField("secondId");
             secondId.set(s2);
+            try {
+                Logger.info("MacAddressFix_RW", String.format(
+                        "Applied MAC override : %s | %s | %s",
+                        mac.getField().get(""),
+                        firstId.getField().get(""),
+                        secondId.getField().get("")));
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                Logger.error("Macfix RW", e.getMessage());
+            }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -53,7 +75,7 @@ public class MacAddressFix implements Random {
 
     @Override
     public String getServer() {
-        return "locopk";
+        return "RuneWild";
     }
 
     @Override

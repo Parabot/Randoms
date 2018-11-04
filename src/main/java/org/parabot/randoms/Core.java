@@ -7,6 +7,7 @@ import org.parabot.randoms.elkoy.AntiDetector;
 import org.parabot.randoms.elkoy.LogoutDisabler;
 import org.parabot.randoms.elkoy.MouseOnScreen;
 import org.parabot.randoms.elkoy.QuestionSolver;
+import org.parabot.randoms.oswar.ItemPicker;
 import org.parabot.randoms.pkhonor.*;
 import org.parabot.randoms.runewild.MacAddressFix;
 import org.parabot.randoms.soulplay.RandomUUID;
@@ -43,6 +44,9 @@ public class Core {
 
         // SoulPlay
         randoms.add(new RandomUUID());
+
+        //OSWar
+        randoms.add(new ItemPicker());
 
         StringBuilder sb = new StringBuilder();
         sb.append("Possible randoms:\n");

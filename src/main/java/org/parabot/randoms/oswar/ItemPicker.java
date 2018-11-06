@@ -9,7 +9,6 @@ import org.rev317.min.api.methods.Interfaces;
 import org.rev317.min.api.methods.Items;
 import org.rev317.min.api.methods.Menu;
 
-
 /**
  * @author AlexanderBielen
  */
@@ -20,6 +19,7 @@ public class ItemPicker implements Random {
     public boolean activate() {
         return Game.isLoggedIn()
                 && Interfaces.getOpenInterfaceId() == INTERFACE_ID
+                && Interfaces.getInterface(INTERFACE_ID + 3).getMessage() != null
                 && !Interfaces.getInterface(INTERFACE_ID + 3).getMessage().contains("0:00");
     }
 

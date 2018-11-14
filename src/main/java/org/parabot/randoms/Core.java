@@ -7,8 +7,9 @@ import org.parabot.randoms.elkoy.AntiDetector;
 import org.parabot.randoms.elkoy.LogoutDisabler;
 import org.parabot.randoms.elkoy.MouseOnScreen;
 import org.parabot.randoms.elkoy.QuestionSolver;
-import org.parabot.randoms.locopk.MacAddressFix;
+import org.parabot.randoms.oswar.ItemPicker;
 import org.parabot.randoms.pkhonor.*;
+import org.parabot.randoms.runewild.MacAddressFix;
 import org.parabot.randoms.soulplay.RandomUUID;
 
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class Core {
         randoms.add(new MouseOnScreen());
         randoms.add(new AntiDetector());
 
-        // LocoPK
+        // RuneWild
         randoms.add(new MacAddressFix());
 
         // Dreamscape
@@ -44,12 +45,23 @@ public class Core {
         // SoulPlay
         randoms.add(new RandomUUID());
 
-        org.parabot.core.Core.verbose("Possible randoms:");
+        //OSWar
+        randoms.add(new ItemPicker());
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("Possible randoms:\n");
+        int randomCount = 0;
         for (Random random : randoms) {
             if (random.getServer().equalsIgnoreCase(server)) {
-                org.parabot.core.Core.verbose("-> " + random.getName());
+                sb.append("\t-> ").append(random.getName());
                 Context.getInstance().getRandomHandler().addRandom(random);
+                randomCount++;
             }
         }
+        final String toPrint = sb.append("\n").toString();
+        if (toPrint.contains("->")) {
+            org.parabot.core.Core.verbose(toPrint);
+        }
+        org.parabot.core.Core.verbose("[org.parabot.randoms.Core] A total of "+randomCount+" randoms have been loaded for server: "+server);
     }
 }

@@ -2,7 +2,8 @@ package org.parabot.randoms.ikov;
 
 import org.parabot.environment.api.utils.Time;
 import org.parabot.environment.input.Keyboard;
-import org.parabot.environment.scripts.randoms.Random;
+import org.parabot.environment.randoms.Random;
+import org.parabot.environment.randoms.RandomType;
 import org.rev317.min.api.methods.Game;
 
 import java.awt.event.KeyEvent;
@@ -30,6 +31,11 @@ public class LogoutDisabler implements Random {
         Keyboard.getInstance().releaseKey(keyCode);
 
         ms = System.currentTimeMillis();
+    }
+
+    @Override
+    public RandomType getRandomType() {
+        return RandomType.SCRIPT;
     }
 
     @Override

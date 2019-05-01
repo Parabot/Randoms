@@ -2,8 +2,9 @@ package org.parabot.randoms.ikov;
 
 import org.parabot.environment.api.utils.Time;
 import org.parabot.environment.input.Mouse;
+import org.parabot.environment.randoms.Random;
+import org.parabot.environment.randoms.RandomType;
 import org.parabot.environment.scripts.framework.SleepCondition;
-import org.parabot.environment.scripts.randoms.Random;
 import org.rev317.min.api.methods.Game;
 
 /**
@@ -50,6 +51,11 @@ public class Login implements Random {
     @Override
     public String getServer() {
         return "Ikov";
+    }
+
+    @Override
+    public RandomType getRandomType() {
+        return RandomType.SCRIPT;
     }
 
     /**

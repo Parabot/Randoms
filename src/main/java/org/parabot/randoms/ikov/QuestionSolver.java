@@ -7,9 +7,10 @@ import org.parabot.core.ui.Logger;
 import org.parabot.environment.api.utils.Time;
 import org.parabot.environment.api.utils.WebUtil;
 import org.parabot.environment.input.Keyboard;
+import org.parabot.environment.randoms.Random;
+import org.parabot.environment.randoms.RandomType;
 import org.parabot.environment.scripts.Script;
 import org.parabot.environment.scripts.framework.SleepCondition;
-import org.parabot.environment.scripts.randoms.Random;
 import org.rev317.min.Loader;
 import org.rev317.min.api.methods.Game;
 import org.rev317.min.api.methods.Menu;
@@ -54,23 +55,38 @@ public class QuestionSolver implements Random {
         Time.sleep(1000);
     }
 
-    public String getAnswer(String question){
+    public String getAnswer(String question) {
         try {
             JSONObject object = (JSONObject) WebUtil.getJsonParser().parse(WebUtil.getContents("http://bdn.parabot.org/api/v2/data/questions/get",
                     "server=ikov&question=" + URLEncoder.encode(question, "UTF-8")));
             JSONObject result;
-            if ((result = (JSONObject) object.get("result")) != null){
+            if ((result = (JSONObject) object.get("result")) != null) {
                 Object answer;
-                if ((answer = result.get("answer")) != null){
+                if ((answer = result.get("answer")) != null) {
                     return (String) answer;
                 }
             }
         } catch (ParseException | MalformedURLException | UnsupportedEncodingException e) {
             e.printStackTrace();
-        }catch (Exception ignored){
+        } catch (Exception ignored) {
             // Catching for old bots
         }
         return null;
+    }
+
+    @Override
+    public RandomType getRandomType() {
+        return RandomType.SCRIPT;
+    }
+
+    @Override
+    public String getName() {
+        return "Question solver";
+    }
+
+    @Override
+    public String getServer() {
+        return "Ikov";
     }
 
     private void forceRelog() {
@@ -92,16 +108,5 @@ public class QuestionSolver implements Random {
             e.printStackTrace();
         }
         Login.setTimer(5 * 60);
-    }
-
-
-    @Override
-    public String getName() {
-        return "Question solver";
-    }
-
-    @Override
-    public String getServer() {
-        return "Ikov";
     }
 }

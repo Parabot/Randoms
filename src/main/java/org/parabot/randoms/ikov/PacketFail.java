@@ -1,7 +1,8 @@
 package org.parabot.randoms.ikov;
 
 import org.parabot.core.ui.Logger;
-import org.parabot.environment.scripts.randoms.Random;
+import org.parabot.environment.randoms.Random;
+import org.parabot.environment.randoms.RandomType;
 import org.rev317.min.api.events.MessageEvent;
 import org.rev317.min.api.events.listeners.MessageListener;
 import org.rev317.min.api.methods.Game;
@@ -46,6 +47,11 @@ public class PacketFail implements Random, MessageListener {
     @Override
     public String getServer() {
         return "Ikov";
+    }
+
+    @Override
+    public RandomType getRandomType() {
+        return RandomType.SCRIPT;
     }
 
     @Override

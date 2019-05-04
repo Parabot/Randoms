@@ -7,8 +7,6 @@ import org.parabot.randoms.elkoy.AntiDetector;
 import org.parabot.randoms.elkoy.LogoutDisabler;
 import org.parabot.randoms.elkoy.MouseOnScreen;
 import org.parabot.randoms.elkoy.QuestionSolver;
-import org.parabot.randoms.ikov.Login;
-import org.parabot.randoms.ikov.PacketFail;
 import org.parabot.randoms.oswar.ItemPicker;
 import org.parabot.randoms.pkhonor.*;
 import org.parabot.randoms.runewild.MacAddressFix;
@@ -38,13 +36,6 @@ public class Core {
         randoms.add(new MouseOnScreen());
         randoms.add(new AntiDetector());
 
-        // Ikov
-        randoms.add(new org.parabot.randoms.ikov.QuestionSolver());
-        randoms.add(new org.parabot.randoms.ikov.LogoutDisabler());
-        randoms.add(new Login());
-        randoms.add(new PacketFail());
-        ;
-
         // RuneWild
         randoms.add(new MacAddressFix());
 
@@ -71,6 +62,6 @@ public class Core {
         if (toPrint.contains("->")) {
             org.parabot.core.Core.verbose(toPrint);
         }
-        org.parabot.core.Core.verbose("[org.parabot.randoms.Core] A total of " + randomCount + " randoms have been loaded for server: " + server);
+        org.parabot.core.Core.verbose("[org.parabot.randoms.Core] A total of "+randomCount+" randoms have been loaded for server: "+server);
     }
 }
